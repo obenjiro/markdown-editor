@@ -1,8 +1,9 @@
 import React from 'react';
 
+import {ToolbarBaseProps} from 'src/bundle/toolbar/types';
+
 import {ActionStorage} from '../../../core';
-import {ToolbarBaseProps} from '../../../toolbar';
-import {wHeadingListConfig} from '../../config/wysiwyg';
+import {wHeadingListConfig} from '../../config/w-heading-config';
 import {ToolbarSelect} from '../ToolbarSelect';
 
 export type WToolbarTextSelectProps = ToolbarBaseProps<ActionStorage> & {};
