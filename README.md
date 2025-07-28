@@ -2,30 +2,30 @@
 
 # @gravity-ui/markdown-editor &middot; [![npm package](https://img.shields.io/npm/v/@gravity-ui/markdown-editor)](https://www.npmjs.com/package/@gravity-ui/markdown-editor) [![CI](https://img.shields.io/github/actions/workflow/status/gravity-ui/markdown-editor/ci.yml?branch=main&label=CI)](https://github.com/gravity-ui/markdown-editor/actions/workflows/ci.yml?query=branch:main) [![Release](https://img.shields.io/github/actions/workflow/status/gravity-ui/markdown-editor/release.yml?branch=main&label=Release)](https://github.com/gravity-ui/markdown-editor/actions/workflows/release.yml?query=branch:main) [![storybook](https://img.shields.io/badge/Storybook-deployed-ff4685)](https://preview.gravity-ui.com/md-editor/)
 
-## Markdown wysiwyg and markup editor
+## Markdown WYSIWYG and Markup Editor
 
 MarkdownEditor is a powerful tool for working with Markdown, which combines WYSIWYG and Markup modes. This means that you can create and edit content in a convenient visual mode, as well as have full control over the markup.
 
 ### 🔧 Main features
 
 - Support for the basic Markdown and [YFM](https://ydocs.tech) syntax.
-- Extensibility through the use of ProseMirror and CodeMirror engines.
+- Extensibility through the use of [ProseMirror](https://prosemirror.net/) and [CodeMirror](https://codemirror.net/) engines.
 - The ability to work in WYSIWYG and Markup modes for maximum flexibility.
 
 ## Install
 
-```shell
+```bash
 npm install @gravity-ui/markdown-editor
 ```
 
 ### Required dependencies
 
-Please note that to start using the package, your project must also have the following installed: `@diplodoc/transform`, `react`, `react-dom`, `@gravity-ui/uikit`, `@gravity-ui/components` and some others. Check out the `peerDependencies` section of `package.json` for accurate information.
+Please note that to start using the package, your project must also have the following installed: `@diplodoc/transform`, `react`, `react-dom`, `@gravity-ui/uikit`, `@gravity-ui/components` and some others. Check out the `peerDependencies` section in the `package.json` file for accurate information.
 
 ## Getting started
 
 The markdown editor is supplied as a React hook to create an instance of editor and a component for rendering the view.\
-To set up styling and theme see [UIKit docs](https://github.com/gravity-ui/uikit?tab=readme-ov-file#styles).
+To set up styling and theme, see the [UIKit documentation](https://github.com/gravity-ui/uikit?tab=readme-ov-file#styles).
 
 ```tsx
 import React from 'react';
@@ -50,7 +50,7 @@ function Editor({onSubmit}) {
   return <MarkdownEditorView stickyToolbar autofocus editor={editor} />;
 }
 ```
-Read more:
+### Learn More
 - [How to connect the editor in the Create React App](https://preview.gravity-ui.com/md-editor/?path=/docs/docs-getting-started-create-react-app--docs)
 - [How to add preview for markup mode](https://preview.gravity-ui.com/md-editor/?path=/docs/docs-getting-started-preview--docs)
 - [How to add HTML extension](https://preview.gravity-ui.com/md-editor/?path=/docs/docs-extensions-html-block--docs)
@@ -61,16 +61,16 @@ Read more:
 - [How to add text binding extension in markdown](https://preview.gravity-ui.com/md-editor/?path=/docs/docs-develop-extension-with-popup--docs)
 
 ### Development
-To start the dev storybook
+To start the development storybook environment, run:
 
-```shell
+```bash
 npm start
 ```
 
 
 ### i18n
 
-To set up internationalization, you just need to use the `configure`:
+To set up internationalization, you just need to use the `configure` function:
 
 ```typescript
 import {configure} from '@gravity-ui/markdown-editor';
@@ -80,8 +80,10 @@ configure({
 });
 ```
 
-Don't forget to call `configure()` from [UIKit](https://github.com/gravity-ui/uikit?tab=readme-ov-file#i18n) and other UI libraries.
+Don't forget to also call `configure()` from [UIKit](https://github.com/gravity-ui/uikit?tab=readme-ov-file#i18n) and any other UI libraries you're using.
 
 ### Contributing
+
+We welcome contributions to this project! Please check out our:
 
 - [Contributor Guidelines](https://preview.gravity-ui.com/md-editor/?path=/docs/docs-contributing--docs)
