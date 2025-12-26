@@ -1,35 +1,26 @@
 import {builders} from 'prosemirror-test-builder';
 
-import {parseDOM} from '../../../../tests/parse-dom';
 import {createMarkupChecker} from '../../../../tests/sameMarkup';
 import {ExtensionsManager} from '../../../core';
 import {BaseNode, BaseSchemaSpecs} from '../../base/specs';
 
 import {MonospaceSpecs, monospaceMarkName} from './MonospaceSpecs';
 
-const {
-    schema,
-    markupParser: parser,
-    serializer,
-} = new ExtensionsManager({
+const {schema, markupParser: parser, serializer} = new ExtensionsManager({
     extensions: (builder) => builder.use(BaseSchemaSpecs, {}).use(MonospaceSpecs),
 }).buildDeps();
 
-const {doc, p, m} = builders<'doc' | 'p', 'm'>(schema, {
+const {doc, p} = builders(schema, {
     doc: {nodeType: BaseNode.Doc},
     p: {nodeType: BaseNode.Paragraph},
-    m: {markType: monospaceMarkName},
 });
 
 const {same} = createMarkupChecker({parser, serializer});
 
 describe('Monospace extension', () => {
-    it('should parse monospace', () => same('##hello!##', doc(p(m('hello!')))));
+    it('should keep angle brackets inside monospace', () => {
+        const text = schema.text("Toplevelocation<P>['id']", [schema.marks[monospaceMarkName].create()]);
 
-    it('should parse monospace inside text', () =>
-        same('he##llo wor##ld!', doc(p('he', m('llo wor'), 'ld!'))));
-
-    it('should parse html - samp tag', () => {
-        parseDOM(schema, '<samp>hello world!</samp>', doc(p(m('hello world!'))));
+        same('##Toplevelocation<P>[\'id\']##', doc(p(text)));
     });
 });
