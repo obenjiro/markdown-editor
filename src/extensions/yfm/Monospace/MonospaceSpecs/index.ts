@@ -28,6 +28,7 @@ export const MonospaceSpecs: ExtensionAuto = (builder) => {
                 close: '##',
                 mixable: true,
                 expelEnclosingWhitespace: true,
+                escape: false,
             },
         }));
 };
